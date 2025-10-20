@@ -1,22 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
-import Home from './pages/Home';
-import Weather from './components/Weather';
-
-const WeatherWrapper: React.FC = () => {
-  const { city } = useParams<{ city: string }>();
-  if (!city) return <p>Không có tên thành phố</p>;
-  return <Weather city={city} />;
-};
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import StudentList from './components/StudentList';
+import StudentDetail from './components/StudentDetail';
 
 const App: React.FC = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/weather/:city" element={<WeatherWrapper />} />
+      <Route path="/" element={<StudentList />} />
+      <Route path="/student/:id" element={<StudentDetail />} />
     </Routes>
   </Router>
 );
 
 export default App;
-export{};
